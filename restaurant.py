@@ -20,13 +20,19 @@ while True:
     choice = int(input())
 
     if choice == 1:
+        print('-'*40)
         print('ID\tName\t\tPrice')
         print('-'*40)
         for item in items:
             print(f'{item.get("id")}\t{item.get("name")}\t{item.get("price")}')
         print('-'*40)
     elif choice == 2:
-        print('Order items')
+        order_item = int(input("Select the ID of the item you want to order:"))
+        for item in items:
+            if item['id'] == order_item:
+                print(f'{item.get("id")}\t{item.get("name")}\t{item.get("price")}')
+                break
+        print('Total Amount:', item.get('price'))
     elif choice == 3:
         print('Update Menu')
     elif choice == 4:
