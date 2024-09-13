@@ -36,7 +36,7 @@ while True:
             
 
             for item in items:
-                if item['id'] == order_items:
+                if item['id'] == order_item:
                     print(f'{item.get("id")}\t{item.get("name")}\t{item.get("price")}')
                     break
         print('Total Amount:', item.get('price'))
