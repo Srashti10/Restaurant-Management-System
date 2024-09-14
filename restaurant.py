@@ -30,7 +30,7 @@ while True:
         order_items = list(map(int, input('What you want to try today? ').split(',')))
         print('-'*40)
         print('ID\tName\t\tPrice')
-        print('-'*40)
+        print('-'*45)
 
         for order_item in order_items:
             
