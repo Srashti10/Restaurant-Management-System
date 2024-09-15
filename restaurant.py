@@ -47,8 +47,15 @@ while True:
 
     elif choice == 3:
         name = input('Enter item name: ')
-        price = int(input('Enter the price: '))
-        veg = input('veg or non-veg')
+        item_price = int(input('Enter the price: '))
+        item_type = input('veg or non-veg')
+        items.append({
+            'id': len(items) + 1,
+            'name': name,
+            'item_price': item_price,
+            'item_type': True if item_type == 'veg' else False,
+            'reviews': []
+        })
         
 
     elif choice == 4:
