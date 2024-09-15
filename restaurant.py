@@ -12,7 +12,7 @@ while True:
     print('-'*40)
     print('1. Show Menu')
     print('2. Order Items')
-    print('3. Update Menu')
+    print('3. Add Item')
     print('4. Add Review')
     print('5. Exit')
     print('-'*40)
