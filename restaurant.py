@@ -46,7 +46,11 @@ while True:
 
 
     elif choice == 3:
-        print('Update Menu')
+        name = input('Enter item name: ')
+        price = int(input('Enter the price: '))
+        veg = input('veg or non-veg')
+        
+
     elif choice == 4:
         print('Add review')
     else:
