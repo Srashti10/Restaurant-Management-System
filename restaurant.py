@@ -31,15 +31,17 @@ while True:
         print('-'*40)
         print('ID\tName\t\tPrice')
         print('-'*40)
+        total_bill = 0
 
         for order_item in order_items:
-            
-
             for item in items:
                 if item['id'] == order_item:
                     print(f'{item.get("id")}\t{item.get("name")}\t{item.get("price")}')
+                    total_bill = total_bill + int(item.get('price', 50))
                     break
-        print('Total Amount:', item.get('price'))
+        print('-'*40)
+        print(f'\t Total Amount: {total_bill}')0
+        print('-'*40)
     elif choice == 3:
         print('Update Menu')
     elif choice == 4:
