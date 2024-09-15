@@ -1,6 +1,13 @@
 import json
 import pprint
 
+def get_rating(reviews):
+    rating = 5
+    if reviews: #[3,4,5,1,4,5]
+        rating = sum(reviews)//len(reviews)
+    return '⭐'*rating
+
+
 with open('menu.json', 'r') as f:
     data = json.load(f)
 
@@ -13,7 +20,7 @@ while True:
     print('1. Show Menu')
     print('2. Order Items')
     print('3. Add Item')
-    print('4. Add Review')
+    print('4. Add Rating')
     print('5. Exit')
     print('-'*40)
 
@@ -21,10 +28,10 @@ while True:
 
     if choice == 1:
         print('-'*40)
-        print('ID\tName\t\tPrice')
+        print('ID\tName\t\tPrice\tRating')
         print('-'*40)
         for item in items:
-            print(f'{item.get("id")}\t{item.get("name")}\t{item.get("price")}')
+            print(f'{item.get("id")}\t{item.get("name")}\t{item.get("price")}\t{get_rating(item.get("reviews", []))}')
         print('-'*40)
 
 
@@ -63,9 +70,18 @@ while True:
 
         
     elif choice == 4:
-        print('Add review')
+        item_id = int(input('Enter the item id:'))
+        rating = int(input('Give your rating(1-5): '))
+        for i,item in enumerate(items):
+            if item['id'] == item_id:
+                items[i]['reviews'].append(rating)
+                break
+        print('Thank You for your review. Your response is recorded.')
 
-        
+
     else:
+        data['items'] = items
+        with open('menu.json', 'w') as f:
+            json.dump(data, f)
         print('Thanku')
         break
