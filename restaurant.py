@@ -56,8 +56,12 @@ while True:
             'item_type': True if item_type == 'veg' else False,
             'reviews': []
         })
-        
+        data['items'] = items
+        with open('menu.json', 'w') as f:
+            json.dump(data, f)
+        print('Item is added')
 
+        
     elif choice == 4:
         print('Add review')
     else:
