@@ -40,7 +40,7 @@ while True:
                     total_bill = total_bill + int(item.get('price', 50))
                     break
         print('-'*40)
-        print(f'\t Total Amount: {total_bill}')0
+        print(f'\t Total Amount: {total_bill}')
         print('-'*40)
     elif choice == 3:
         print('Update Menu')
