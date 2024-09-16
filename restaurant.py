@@ -79,6 +79,7 @@ while True:
         print('Thank You for your review. Your response is recorded.')
 
 
+
     else:
         data['items'] = items
         with open('menu.json', 'w') as f:
