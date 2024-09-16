@@ -36,17 +36,26 @@ while True:
 
 
     elif choice == 2:
+        ordered_items = {}
         order_items = list(map(int, input('What you want to try today? ').split(',')))
         print('-'*40)
-        print('ID\tName\t\tPrice')
+        print('ID\tName\t\tPrice\tQuantity\tAmount')
         print('-'*40)
         total_bill = 0
         for order_item in order_items:
             for item in items:
                 if item['id'] == order_item:
-                    print(f'{item.get("id")}\t{item.get("name")}\t{item.get("price")}')
-                    total_bill = total_bill + int(item.get('price', 50))
-                    break
+                    if order_item in order_items:
+                        order_items[order_items]['quantity'] +=1
+                    else:
+                        ordered_items[order_item] = item
+                        ordered_items[order_item]['quantity'] = 1
+                break
+        for item in order_items:
+            name = order_items[item]['name']
+            price = order_items[item]['price']
+            quantity = order_items[item]['quantity']
+            amount = price * quantity
         print('-'*40)
         print(f'\t Total Amount: {total_bill}')
         print('-'*40)
